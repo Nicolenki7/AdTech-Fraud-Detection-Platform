@@ -1,0 +1,75 @@
+"""
+AdTech Fraud Detection Platform - Configuration
+================================================
+Environment configuration management.
+Copy this file to config.py and update with your credentials.
+"""
+
+from pydantic import BaseModel
+from typing import Optional
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+class SnowflakeConfig(BaseModel):
+    """Snowflake connection configuration."""
+    
+    account: str
+    user: str
+    password: str
+    warehouse: str = "FRAUD_ANALYSIS_WH"
+    database: str = "FRAUD_DETECTION_DB"
+    role: str = "SYSADMIN"
+    
+    class Config:
+        env_prefix = "SNOWFLAKE_"
+
+
+class AppConfig(BaseModel):
+    """Application configuration."""
+    
+    snowflake: SnowflakeConfig
+    log_level: str = "INFO"
+    debug: bool = False
+    
+    # Alert thresholds
+    critical_risk_threshold: float = 0.90
+    high_risk_threshold: float = 0.70
+    medium_risk_threshold: float = 0.40
+    
+    # Alert expiration (days)
+    block_alert_expiry_days: int = 7
+    review_alert_expiry_days: int = 3
+    monitor_alert_expiry_days: int = 1
+
+
+def get_config() -> AppConfig:
+    """Load configuration from environment variables."""
+    
+    return AppConfig(
+        snowflake=SnowflakeConfig(
+            account=os.getenv("SNOWFLAKE_ACCOUNT", "your-account.snowflakecomputing.com"),
+            user=os.getenv("SNOWFLAKE_USER", ""),
+            password=os.getenv("SNOWFLAKE_PASSWORD", ""),
+            warehouse=os.getenv("SNOWFLAKE_WAREHOUSE", "FRAUD_ANALYSIS_WH"),
+            database=os.getenv("SNOWFLAKE_DATABASE", "FRAUD_DETECTION_DB"),
+            role=os.getenv("SNOWFLAKE_ROLE", "SYSADMIN")
+        ),
+        log_level=os.getenv("LOG_LEVEL", "INFO"),
+        debug=os.getenv("DEBUG", "false").lower() == "true"
+    )
+
+
+# Example .env file:
+"""
+SNOWFLAKE_ACCOUNT=your-account.snowflakecomputing.com
+SNOWFLAKE_USER=your-username
+SNOWFLAKE_PASSWORD=your-password
+SNOWFLAKE_WAREHOUSE=FRAUD_ANALYSIS_WH
+SNOWFLAKE_DATABASE=FRAUD_DETECTION_DB
+SNOWFLAKE_ROLE=SYSADMIN
+LOG_LEVEL=INFO
+DEBUG=false
+"""
