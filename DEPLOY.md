@@ -2,6 +2,8 @@
 
 Esta guía te llevará paso a paso para desplegar el dashboard en Streamlit Cloud.
 
+> 🎉 **Demo en vivo:** https://adtech-fraud-detection-platform.streamlit.app/
+
 ---
 
 ## ✅ Pre-requisitos
@@ -74,6 +76,8 @@ Una vez deployado, vas a recibir una URL como:
 ```
 https://nicolenki7-adtech-fraud-detection-platform-dashboard-app-xyz123.streamlit.app
 ```
+
+> 🎉 **URL actual de tu app:** https://adtech-fraud-detection-platform.streamlit.app/
 
 ¡Esta es tu app pública! Podés compartirla en LinkedIn, portfolio, etc.
 

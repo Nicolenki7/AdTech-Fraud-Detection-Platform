@@ -78,6 +78,21 @@ st.markdown("""
         border-radius: 8px;
         border: 1px solid #e5e7eb;
     }
+    .stMetric label {
+        color: #374151 !important;
+        font-weight: 600;
+    }
+    .stMetric div[data-testid="stMetricValue"] {
+        color: #1f2937 !important;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    .stMetric div[data-testid="stMetricDelta"] {
+        color: #059669 !important;
+    }
+    .stMetric div[data-testid="stMetricDelta"][data-testid="stMetricDelta--inverse"] {
+        color: #dc2626 !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 

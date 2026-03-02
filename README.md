@@ -5,6 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python)](https://www.python.org/)
 [![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?logo=snowflake)](https://www.snowflake.com/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28-FF4B4B?logo=streamlit)](https://streamlit.io/)
+[![Live Demo](https://img.shields.io/badge/Demo-Live-FF4B4B?logo=streamlit)](https://adtech-fraud-detection-platform.streamlit.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
@@ -287,6 +288,8 @@ $$;
    - SNOWFLAKE_ACCOUNT
    - SNOWFLAKE_USER
    - SNOWFLAKE_PASSWORD
+
+> 🎉 **Demo en vivo:** https://adtech-fraud-detection-platform.streamlit.app/
 
 ### Opción 2: Local Development
 
