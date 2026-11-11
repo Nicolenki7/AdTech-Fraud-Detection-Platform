@@ -1,0 +1,8 @@
+# Binarios: sin diff y fuera de las estadisticas de lenguaje
+*.pbix binary
+*.twbx binary
+*.docx binary
+*.pdf binary
+*.png binary
+*.jpg binary
+*.xlsx binary
